@@ -2,7 +2,7 @@ name: gitleaks-scheduled
 
 on: 
   schedule:
-  - cron: '* * * * *'
+  - cron: '*/5 * * * *'
 
 jobs:
   gitleaks-scheduled:
