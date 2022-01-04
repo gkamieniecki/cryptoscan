@@ -6,7 +6,7 @@ on:
       logLevel:
         description: 'Manual gitleaks scan'     
         required: true
-        default: 'warning'
+        default: 'main'
       
 
 jobs:
