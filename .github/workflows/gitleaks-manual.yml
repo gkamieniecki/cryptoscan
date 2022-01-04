@@ -1,0 +1,19 @@
+name: gitleaks-manual
+
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Manual gitleaks scan'     
+        required: true
+        default: 'warning'
+      
+
+jobs:
+  gitleaks-manual:
+    name: 'Gitleaks Scan manual'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master

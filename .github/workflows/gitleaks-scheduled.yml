@@ -1,0 +1,15 @@
+name: gitleaks-scheduled
+
+on: 
+  schedule:
+  - cron: '0 0 * * *'
+
+
+jobs:
+  gitleaks-scheduled:
+    name: 'Gitleaks Scan once per day'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master
