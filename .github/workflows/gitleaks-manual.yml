@@ -13,11 +13,8 @@ jobs:
     name: 'Gitleaks Scan manual'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-    
-      - name: pwd
-        id: pwd
-        run: pwd
-    
-      - name: gitleaks-action
-        uses: zricethezav/gitleaks-action@master
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master
