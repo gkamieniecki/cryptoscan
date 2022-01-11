@@ -11,7 +11,7 @@ jobs:
 
     - name: pwd
       id: pwd
-      run: echo "pwd"
+      run: pwd
 
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master
