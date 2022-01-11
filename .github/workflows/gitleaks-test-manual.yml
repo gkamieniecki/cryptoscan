@@ -1,4 +1,4 @@
-name: gitleaks-manual
+name: gitleaks-test-manual
 
 on: 
   workflow_dispatch:
