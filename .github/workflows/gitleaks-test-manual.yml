@@ -20,6 +20,8 @@ jobs:
     - name: clone gitleaks repo and build 
       id: build
       run: |
+        wget -c https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+        sudo tar -C /usr/local -xvzf go1.15.2.linux-amd64.tar.gz
         git clone https://github.com/zricethezav/gitleaks.git
         cd gitleaks
         make build
