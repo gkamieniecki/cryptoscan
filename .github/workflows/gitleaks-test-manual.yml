@@ -18,14 +18,14 @@ jobs:
         fetch-depth: '0'
     
     - name: clone gitleaks repo and build 
-      id: clone repo and build
+      id: build
       run: |
         git clone https://github.com/zricethezav/gitleaks.git
         cd gitleaks
         make build
 
     - name: scan repo
-      id: scan repo
+      id: scan
       run: |
         cd /home/runner/work/cryptoscan/cryptoscan
         git leaks detect
