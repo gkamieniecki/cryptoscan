@@ -1,23 +1,23 @@
-name: gitleaks-scheduled
+# name: gitleaks-scheduled
 
-on: 
-  schedule:
-  - cron: '*/5 * * * *'
+# on: 
+#   schedule:
+#   - cron: '*/5 * * * *'
 
-jobs:
-  gitleaks-scheduled:
-    name: 'Gitleaks Scan once per day'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
+# jobs:
+#   gitleaks-scheduled:
+#     name: 'Gitleaks Scan once per day'
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+#       with:
+#         fetch-depth: '0'
     
-    - name: gitleaks docker scan
-      id: scan
-      run: |
-        docker pull zricethezav/gitleaks:latest
-        docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest detect --source="/path" -v
+#     - name: gitleaks docker scan
+#       id: scan
+#       run: |
+#         docker pull zricethezav/gitleaks:latest
+#         docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest detect --source="/path" -v
 
-    - name: gitleaks-action
-      uses: zricethezav/gitleaks-action@master
+#     - name: gitleaks-action
+#       uses: zricethezav/gitleaks-action@master
