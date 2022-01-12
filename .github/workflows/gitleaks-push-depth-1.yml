@@ -1,0 +1,15 @@
+name: gitleaks-push
+
+on: [push]
+
+jobs:
+  gitleaks-push:
+    name: 'Gitleaks Scan on every push'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '1'
+
+    - name: gitleaks-action
+      uses: zricethezav/gitleaks-action@master
