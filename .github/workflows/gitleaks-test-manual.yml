@@ -29,18 +29,18 @@ jobs:
     #     cd gitleaks
     #     make build
 
-    - name: build docker
-      id: build
-      run: |
-        docker pull zricethezav/gitleaks:latest
-        docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest --source="/path"
-        
-
-    - name: scan repo
+    - name: gitleaks docker scan
       id: scan
       run: |
-        cd /home/runner/work/cryptoscan/cryptoscan
-        gitleaks detect
+        docker pull zricethezav/gitleaks:latest
+        docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest gitleaks detect --source="/path"
+        
+
+    # - name: scan repo
+    #   id: scan
+    #   run: |
+    #     cd /home/runner/work/cryptoscan/cryptoscan
+    #     gitleaks detect
     
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master
