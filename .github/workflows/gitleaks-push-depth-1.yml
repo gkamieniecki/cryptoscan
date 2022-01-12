@@ -1,4 +1,4 @@
-name: gitleaks-push
+name: gitleaks-push-depth-1
 
 on: [push]
 
