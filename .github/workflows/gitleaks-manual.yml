@@ -17,9 +17,11 @@ jobs:
       with:
         fetch-depth: '0'
 
-    - name: pwd
-      id: pwd
-      run: pwd
+    - name: gitleaks docker scan
+      id: scan
+      run: |
+        docker pull zricethezav/gitleaks:latest
+        docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest detect --source="/path" -v
    
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master

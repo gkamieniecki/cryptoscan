@@ -13,10 +13,6 @@ jobs:
       with:
         fetch-depth: '0'
     
-    - name: pwd
-      id: pwd
-      run: pwd
-    
     - name: gitleaks docker scan
       id: scan
       run: |
