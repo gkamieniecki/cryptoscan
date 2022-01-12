@@ -40,7 +40,7 @@ jobs:
       id: scan
       run: |
         cd /home/runner/work/cryptoscan/cryptoscan
-        git leaks detect
+        gitleaks detect
     
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master
