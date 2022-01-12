@@ -20,14 +20,6 @@ jobs:
     - name: pwd
       id: pwd
       run: pwd
-    # - name: clone gitleaks repo and build 
-    #   id: build
-    #   run: |
-    #     wget -c https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
-    #     sudo tar -xvzf go1.17.6.linux-amd64.tar.gz
-    #     git clone https://github.com/zricethezav/gitleaks.git
-    #     cd gitleaks
-    #     make build
 
     - name: gitleaks docker scan
       id: scan
@@ -35,12 +27,6 @@ jobs:
         docker pull zricethezav/gitleaks:latest
         docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest detect --source="/path" -v
         
-
-    # - name: scan repo
-    #   id: scan
-    #   run: |
-    #     cd /home/runner/work/cryptoscan/cryptoscan
-    #     gitleaks detect
     
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master
