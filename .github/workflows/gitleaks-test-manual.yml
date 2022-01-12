@@ -17,14 +17,26 @@ jobs:
       with:
         fetch-depth: '0'
     
-    - name: clone gitleaks repo and build 
+    - name: pwd
+      id: pwd
+      run: pwd
+    # - name: clone gitleaks repo and build 
+    #   id: build
+    #   run: |
+    #     wget -c https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+    #     sudo tar -xvzf go1.17.6.linux-amd64.tar.gz
+    #     git clone https://github.com/zricethezav/gitleaks.git
+    #     cd gitleaks
+    #     make build
+
+    - name: build docker
       id: build
       run: |
-        wget -c https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
-        sudo tar -xvzf go1.17.6.linux-amd64.tar.gz
-        git clone https://github.com/zricethezav/gitleaks.git
-        cd gitleaks
-        make build
+        sudo apt-get update
+        sudo apt-get install docker-ce docker-ce-cli containerd.io
+        docker pull zricethezav/gitleaks:latest
+        docker run -v ${/home/runner/work/cryptoscan/cryptoscan}:/path zricethezav/gitleaks:latest --source="/path"
+        
 
     - name: scan repo
       id: scan
