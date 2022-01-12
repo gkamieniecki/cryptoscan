@@ -33,7 +33,7 @@ jobs:
       id: build
       run: |
         docker pull zricethezav/gitleaks:latest
-        docker run -v ${/home/runner/work/cryptoscan/cryptoscan}:/path zricethezav/gitleaks:latest --source="/path"
+        docker run -v /home/runner/work/cryptoscan/cryptoscan:/path zricethezav/gitleaks:latest --source="/path"
         
 
     - name: scan repo
